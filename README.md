@@ -22,44 +22,8 @@ sudo apt install -y dotnet-sdk-8.0
 ### To run the published app
 
 - **Windows 10 or 11** (64-bit)
-- FTDI USB serial driver for the KMTronic board
-
----
-
-## Building
-
-From the repository root in WSL (or Linux):
-
-```bash
-chmod +x build.sh   # first time only
-./build.sh
-```
-
-The script will:
-
-1. Restore NuGet packages  
-2. Fail if known vulnerable dependencies are detected  
-3. Publish a **Release** self-contained single-file binary for **Windows x64**  
-4. Run **unit tests** (`tests/KmTronicRelay.Tests`)
-
-### Output
-
-| Target | Path |
-|--------|------|
-| Windows | `build/KmTronicRelay.exe` |
-
-Intermediate build files (`build/bin/`, `build/obj/`) are kept under `build/` and are not required in source control.
-
-Copy `build/KmTronicRelay.exe` to a Windows PC and run it. No .NET installation is needed there.
-
-On Windows, you can also trigger the build from a Windows shell via WSL:
-
-```cmd
-wsl ./build.sh
-```
-
-(`build.cmd` in the repo only prints this hint.)
-
+- FTDI USB serial driver for the KMTronic detection
+  
 ---
 
 ## License
@@ -74,4 +38,4 @@ Third-party components are listed in [THIRD-PARTY-NOTICES](THIRD-PARTY-NOTICES).
 
 - [KMTronic](https://www.kmtronic.com/) relay hardware  
 - [Avalonia UI](https://avaloniaui.net/) desktop framework  
-- [Material Design Icons](https://github.com/google/material-design-icons) (Apache 2.0) — help and gear icons
+- [Material Design Icons](https://github.com/google/material-design-icons) icons
