@@ -1,0 +1,72 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="KmTronicRelay.MainWindow"
+        Title="KmTronicRelay"
+        Icon="/ico1.ico"
+        Width="620"
+        Height="640"
+        MinWidth="552"
+        MinHeight="520"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid RowDefinitions="Auto,*,Auto,Auto">
+        <Border Grid.Row="0"
+                Padding="20,16"
+                BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+                BorderThickness="0,0,0,1">
+            <Grid ColumnDefinitions="*,Auto">
+                <StackPanel Spacing="4">
+                    <TextBlock Text="KmTronicRelay"
+                               FontSize="20"
+                               FontWeight="SemiBold" />
+                    <TextBlock Text="KMTronic 8-port relay control"
+                               Opacity="0.72"
+                               FontSize="13" />
+                </StackPanel>
+                <Button x:Name="AboutButton"
+                        Grid.Column="1"
+                        MinWidth="28"
+                        MinHeight="28"
+                        VerticalAlignment="Top"
+                        ToolTip.Tip="About KmTronicRelay"
+                        Click="OnAboutClick" />
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="RelayRowsPanel" />
+        </ScrollViewer>
+
+        <Border Grid.Row="2"
+                Padding="20,14"
+                BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+                BorderThickness="0,1,0,0">
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Spacing="8">
+                <Button x:Name="AllOffButton"
+                        MinWidth="96"
+                        Content="All Off"
+                        Click="OnAllOffClick" />
+                <Button x:Name="AllOnButton"
+                        MinWidth="96"
+                        Content="All On"
+                        Classes="accent"
+                        Click="OnAllOnClick" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="3"
+                Padding="20,10"
+                Background="{DynamicResource SystemControlBackgroundAltHighBrush}"
+                BorderBrush="{DynamicResource SystemControlForegroundBaseMediumLowBrush}"
+                BorderThickness="0,1,0,0">
+            <TextBlock x:Name="ConnectionStatusText"
+                       Text="Connecting to KmTronic 8-Port USB Relay..."
+                       FontSize="12"
+                       Opacity="0.9" />
+        </Border>
+    </Grid>
+</Window>

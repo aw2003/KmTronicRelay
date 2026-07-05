@@ -1,0 +1,14 @@
+# Build output
+build/
+
+# IDE / OS
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+.DS_Store
+Thumbs.db
+
+# Local logs (UART captures from development)
+*.log
