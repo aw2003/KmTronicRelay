@@ -2,10 +2,6 @@
 
 A desktop GUI for **KMTronic 8-port USB relay boards** (FTDI serial), created with the help of an AI coding assistant.
 
-Built with [.NET 8](https://dotnet.microsoft.com/) and [Avalonia UI](https://avaloniaui.net/). Publishes as a **single self-contained Windows executable** — no .NET runtime required on the machine you run it on.
-
-**License:** [MIT](LICENSE) — see [THIRD-PARTY-NOTICES](THIRD-PARTY-NOTICES) for bundled libraries and icon attributions.
-
 ---
 
 ## Requirements
