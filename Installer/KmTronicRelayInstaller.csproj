@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.Build.NoTargets/3.7.0">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <AppVersion Condition="'$(AppVersion)' == ''">1.0.0</AppVersion>
+    <InnoSetupCompiler Condition="'$(InnoSetupCompiler)' == ''">C:\Program Files (x86)\Inno Setup 6\ISCC.exe</InnoSetupCompiler>
+    <PublishDir>$(MSBuildThisFileDirectory)..\publish\</PublishDir>
+  </PropertyGroup>
+
+  <!-- Step 1: publish the application -->
+  <Target Name="PublishApp" BeforeTargets="Build">
+    <MSBuild Projects="$(MSBuildThisFileDirectory)..\KmTronicRelay.csproj"
+             Targets="Publish"
+             Properties="Configuration=$(Configuration);RuntimeIdentifier=win-x64;SelfContained=false;PublishDir=$(PublishDir)" />
+  </Target>
+
+  <!-- Step 2: compile the Inno Setup script -->
+  <Target Name="BuildInstaller" AfterTargets="Build" Condition="Exists('$(InnoSetupCompiler)')">
+    <Exec Command="&quot;$(InnoSetupCompiler)&quot; /DAppVersion=$(AppVersion) /DPublishDir=&quot;$(PublishDir.TrimEnd('\'))&quot; &quot;$(MSBuildThisFileDirectory)KmTronicRelay.iss&quot;" />
+  </Target>
+
+  <Target Name="WarnNoInno" AfterTargets="Build" Condition="!Exists('$(InnoSetupCompiler)')">
+    <Warning Text="Inno Setup not found at $(InnoSetupCompiler). Installer was not built." />
+  </Target>
+
+</Project>
