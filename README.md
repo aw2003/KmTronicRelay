@@ -1,6 +1,6 @@
 # KmTronicRelay
 
-A desktop GUI for **KMTronic 8-port USB relay boards** (FTDI serial), created with the help of an AI coding assistant.
+A Windows x64 desktop GUI for **KMTronic 8-port USB relay boards** (FTDI serial), created with the help of an AI coding assistant.
 
 ---
 
@@ -8,17 +8,15 @@ A desktop GUI for **KMTronic 8-port USB relay boards** (FTDI serial), created wi
 
 ### To build (developer machine)
 
-- **WSL Ubuntu** (or Linux) with **.NET SDK 8.0** — used to cross-publish the Windows `.exe`
-
-```bash
-sudo apt update
-sudo apt install -y dotnet-sdk-8.0
-```
+- Windows 10 or 11 (64-bit)
+- Visual Studio 2022 or later with .NET 8.0 SDK installed
+- inno 6 setup compiler (for creating the installer - installed to default location `C:\Program Files (x86)\Inno Setup 6`)
 
 ### To run the published app
 
 - **Windows 10 or 11** (64-bit)
 - FTDI USB serial driver for the KMTronic detection
+- KMTronic 8-port USB relay board (FTDI serial)
   
 ---
 
